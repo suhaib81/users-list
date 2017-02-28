@@ -1,5 +1,6 @@
-<div class="table-users">
-  <div class="header">Users</div>
+
+  <div class="table-users" >
+  <div class="header">Users </div>
 
   <table cellspacing="0">
     <tr>
@@ -11,14 +12,15 @@
       <th>email </th>
       <th>Delete </th>
     </tr>
-    <tr>
-      <td><img src="http://retailparkroermond.com/nl/horeca/piet-friet/afbeeldingen/piet-friet-l.png" alt="" /></td>
-      <td>Jane </td>
-      <td>Jane </td>
-      <td>Jane </td>
-      <td>Jane </td>
-      <td>Jane </td>
-      <td>Jane </td>
+    <tr  *ngFor="let user of (users|async) | json">
+      <td><img src="{{user.profilePictureUrl}}" alt="" /></td>
+      <td>{{user.userId}}</td>
+      <td>{{user.firstName}} </td>
+      <td>{{user.lastName}} </td>
+      <td>{{user.age}} </td>
+      <td>{{user.email}} </td>
+      <td>delete </td>
     </tr>
   </table>
-</div>
+</div> 
+<div>{{(users|async) | json}}</div>
