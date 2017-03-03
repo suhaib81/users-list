@@ -10,11 +10,25 @@ export class ThelistComponent implements OnInit {
   users;
   constructor(private userService: UserService) {
 
-    this.users = this.userService.get();
-
   }
 
 
+  delete(id) {
+    this.userService.deleteuser(id)
+      .subscribe(data => console.log('deleted' + id));
+  }
+
+
+
   ngOnInit() {
+
+
+
+    this.userService.get()
+      .subscribe(users => this.users = users);
+
+
+
+
   }
 }

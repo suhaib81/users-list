@@ -7,18 +7,15 @@
       <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>Age </th>
-      <th>email </th>
       <th>Delete </th>
     </tr>
-    <tr *ngFor="let user of users|async">
-      <td><img src="{{user.profilePictureUrl}}" alt="" /></td>
-      <td>{{user.userId}}</td>
-      <td>{{user.firstName}} </td>
-      <td>{{user.lastName}} </td>
-      <td>{{user.age}} </td>
-      <td>{{user.email}} </td>
-      <td>delete </td>
+    <tr *ngFor="let user of users">
+      <td><img src="{{user.avatar}}" alt="" /></td>
+      <td>{{user.id}}</td>
+      <td>{{user.first_name}} </td>
+      <td>{{user.last_name}} </td>
+      <td><a (click)="delete(user.id)" class="delete-btn"> Delete </a></td>
     </tr>
   </table>
 </div>
+<app-adduser></app-adduser>
